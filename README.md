@@ -14,6 +14,7 @@ A full-stack landing website for a Software Backend Engineer built with Next.js 
 ## Tech Stack
 
 ### Frontend
+
 - **Next.js**: React framework for server-side rendering and API routes
 - **Tailwind CSS**: Utility-first CSS framework
 - **shadcn/ui**: High-quality UI components
@@ -22,6 +23,7 @@ A full-stack landing website for a Software Backend Engineer built with Next.js 
 - **Zod**: Schema validation
 
 ### Backend
+
 - **Next.js API Routes**: Backend API endpoints
 - **MongoDB Atlas**: Cloud-based NoSQL database
 - **MongoDB Node.js Driver**: Database connectivity
@@ -68,12 +70,14 @@ A full-stack landing website for a Software Backend Engineer built with Next.js 
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/yourusername/backend-engineer-portfolio.git
    cd backend-engineer-portfolio
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    ```
@@ -82,10 +86,10 @@ A full-stack landing website for a Software Backend Engineer built with Next.js 
    ```bash
    cp .env.example .env.local
    ```
-   
 4. Update the `.env.local` file with your MongoDB Atlas connection string.
 
 5. Run the development server:
+
    ```bash
    npm run dev
    ```
@@ -137,3 +141,18 @@ npm start
 ## License
 
 This project is licensed under the MIT License.
+
+## Code Quality
+
+This project uses several tools to maintain code quality:
+
+- **ESLint** for code linting
+- **Prettier** for code formatting
+- **Husky** for Git hooks
+- **lint-staged** for running checks on staged files
+
+Pre-commit hooks will automatically:
+
+- Format your code with Prettier
+- Run ESLint to catch potential issues
+- Ensure consistent code style
