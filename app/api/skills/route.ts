@@ -5,9 +5,9 @@ export async function GET() {
   try {
     const client = await clientPromise;
     const db = client.db('portfolio');
-    
+
     const skills = await db.collection('skills').find({}).toArray();
-    
+
     return NextResponse.json(skills);
   } catch (error) {
     console.error('Error fetching skills:', error);
@@ -21,7 +21,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    
+
     // Validate request body
     if (!body.category || !body.items || !Array.isArray(body.items)) {
       return NextResponse.json(
@@ -29,21 +29,21 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
-    
+
     const client = await clientPromise;
     const db = client.db('portfolio');
-    
+
     const result = await db.collection('skills').insertOne(body);
-    
-    return NextResponse.json({ 
-      message: 'Skill added successfully',
-      id: result.insertedId 
-    }, { status: 201 });
+
+    return NextResponse.json(
+      {
+        message: 'Skill added successfully',
+        id: result.insertedId,
+      },
+      { status: 201 }
+    );
   } catch (error) {
     console.error('Error adding skill:', error);
-    return NextResponse.json(
-      { error: 'Failed to add skill' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to add skill' }, { status: 500 });
   }
 }

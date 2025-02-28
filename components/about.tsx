@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Download, Github, Linkedin } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { Download, Github, Linkedin } from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const About = () => {
   return (
@@ -83,7 +83,12 @@ const About = () => {
                   <Download className="mr-2 h-4 w-4" /> Download Resume
                 </a>
               </Button>
-              <Button asChild variant="ghost" size="icon" className="rounded-full">
+              <Button
+                asChild
+                variant="ghost"
+                size="icon"
+                className="rounded-full"
+              >
                 <Link
                   href="https://github.com"
                   target="_blank"
@@ -93,7 +98,12 @@ const About = () => {
                   <span className="sr-only">GitHub</span>
                 </Link>
               </Button>
-              <Button asChild variant="ghost" size="icon" className="rounded-full">
+              <Button
+                asChild
+                variant="ghost"
+                size="icon"
+                className="rounded-full"
+              >
                 <Link
                   href="https://linkedin.com"
                   target="_blank"

@@ -1,32 +1,32 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { useParams } from "next/navigation";
-import { 
-  Calendar, 
-  Clock, 
-  ThumbsUp, 
-  MessageSquare, 
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useParams } from 'next/navigation';
+import {
+  Calendar,
+  Clock,
+  ThumbsUp,
+  MessageSquare,
   ArrowLeft,
   Share2,
-  User
-} from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Textarea } from "@/components/ui/textarea";
-import { Input } from "@/components/ui/input";
-import { useToast } from "@/hooks/use-toast";
+  User,
+} from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+import { Textarea } from '@/components/ui/textarea';
+import { Input } from '@/components/ui/input';
+import { useToast } from '@/hooks/use-toast';
 
 // Mock data - in a real app, this would come from the API
 const blogPosts = [
   {
-    id: "1",
-    title: "Building Scalable Microservices with Node.js",
+    id: '1',
+    title: 'Building Scalable Microservices with Node.js',
     excerpt:
-      "Learn how to design and implement scalable microservices architecture using Node.js, Docker, and Kubernetes.",
+      'Learn how to design and implement scalable microservices architecture using Node.js, Docker, and Kubernetes.',
     content: `
       <p>Microservices architecture has become the standard for building large-scale applications that need to scale independently. In this comprehensive guide, we'll explore how to build scalable microservices using Node.js.</p>
       
@@ -156,31 +156,35 @@ spec:
       
       <p>By following the practices outlined in this guide, you'll be well on your way to building a robust, scalable microservices architecture that can grow with your application's needs.</p>
     `,
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
-    date: "May 15, 2025",
-    readTime: "8 min read",
+    image:
+      'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80',
+    date: 'May 15, 2025',
+    readTime: '8 min read',
     likes: 124,
     comments: [
       {
-        id: "c1",
-        name: "Jane Smith",
-        content: "Great article! I've been looking for a comprehensive guide on microservices with Node.js.",
-        createdAt: "2025-05-16T10:30:00Z"
+        id: 'c1',
+        name: 'Jane Smith',
+        content:
+          "Great article! I've been looking for a comprehensive guide on microservices with Node.js.",
+        createdAt: '2025-05-16T10:30:00Z',
       },
       {
-        id: "c2",
-        name: "John Doe",
-        content: "I'm curious about how you handle database transactions across multiple microservices. Any thoughts on that?",
-        createdAt: "2025-05-16T14:45:00Z"
+        id: 'c2',
+        name: 'John Doe',
+        content:
+          "I'm curious about how you handle database transactions across multiple microservices. Any thoughts on that?",
+        createdAt: '2025-05-16T14:45:00Z',
       },
       {
-        id: "c3",
-        name: "Alice Johnson",
-        content: "Have you considered using gRPC for service-to-service communication? I've found it to be more efficient than REST for internal services.",
-        createdAt: "2025-05-17T09:15:00Z"
-      }
+        id: 'c3',
+        name: 'Alice Johnson',
+        content:
+          "Have you considered using gRPC for service-to-service communication? I've found it to be more efficient than REST for internal services.",
+        createdAt: '2025-05-17T09:15:00Z',
+      },
     ],
-    tags: ["Microservices", "Node.js", "Architecture"],
+    tags: ['Microservices', 'Node.js', 'Architecture'],
   },
   // Other blog posts would be here
 ];
@@ -191,7 +195,7 @@ export default function BlogPostPage() {
   const [post, setPost] = useState(null);
   const [likes, setLikes] = useState(0);
   const [comments, setComments] = useState([]);
-  const [newComment, setNewComment] = useState({ name: "", content: "" });
+  const [newComment, setNewComment] = useState({ name: '', content: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
@@ -208,25 +212,25 @@ export default function BlogPostPage() {
     // In a real app, this would call the API
     setLikes(prev => prev + 1);
     toast({
-      title: "Thanks for your like!",
-      description: "Your appreciation has been recorded.",
+      title: 'Thanks for your like!',
+      description: 'Your appreciation has been recorded.',
     });
   };
 
-  const handleCommentSubmit = async (e) => {
+  const handleCommentSubmit = async e => {
     e.preventDefault();
-    
+
     if (!newComment.name.trim() || !newComment.content.trim()) {
       toast({
-        title: "Error",
-        description: "Please fill in all fields",
-        variant: "destructive",
+        title: 'Error',
+        description: 'Please fill in all fields',
+        variant: 'destructive',
       });
       return;
     }
-    
+
     setIsSubmitting(true);
-    
+
     // In a real app, this would call the API
     const comment = {
       id: `c${comments.length + 1}`,
@@ -234,17 +238,17 @@ export default function BlogPostPage() {
       content: newComment.content,
       createdAt: new Date().toISOString(),
     };
-    
+
     // Simulate API delay
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     setComments(prev => [...prev, comment]);
-    setNewComment({ name: "", content: "" });
+    setNewComment({ name: '', content: '' });
     setIsSubmitting(false);
-    
+
     toast({
-      title: "Comment added",
-      description: "Your comment has been posted successfully.",
+      title: 'Comment added',
+      description: 'Your comment has been posted successfully.',
     });
   };
 
@@ -287,7 +291,9 @@ export default function BlogPostPage() {
                 </Badge>
               ))}
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">{post.title}</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">
+              {post.title}
+            </h1>
             <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-6">
               <Calendar className="h-4 w-4 mr-1" />
               <span className="mr-4">{post.date}</span>
@@ -305,13 +311,17 @@ export default function BlogPostPage() {
             />
           </div>
 
-          <div 
+          <div
             className="prose prose-lg dark:prose-invert max-w-none mb-12"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
           <div className="flex items-center justify-between mb-8">
-            <Button onClick={handleLike} variant="outline" className="flex items-center">
+            <Button
+              onClick={handleLike}
+              variant="outline"
+              className="flex items-center"
+            >
               <ThumbsUp className="mr-2 h-4 w-4" />
               Like ({likes})
             </Button>
@@ -324,11 +334,16 @@ export default function BlogPostPage() {
           <Separator className="mb-8" />
 
           <div className="mb-12">
-            <h2 className="text-2xl font-semibold mb-6">Comments ({comments.length})</h2>
-            
+            <h2 className="text-2xl font-semibold mb-6">
+              Comments ({comments.length})
+            </h2>
+
             <div className="space-y-6 mb-8">
-              {comments.map((comment) => (
-                <div key={comment.id} className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+              {comments.map(comment => (
+                <div
+                  key={comment.id}
+                  className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg"
+                >
                   <div className="flex items-center mb-2">
                     <div className="bg-primary/10 p-2 rounded-full mr-3">
                       <User className="h-4 w-4 text-primary" />
@@ -336,12 +351,14 @@ export default function BlogPostPage() {
                     <div>
                       <p className="font-medium">{comment.name}</p>
                       <p className="text-xs text-gray-500 dark:text-gray-400">
-                        {new Date(comment.createdAt).toLocaleDateString()} at{" "}
+                        {new Date(comment.createdAt).toLocaleDateString()} at{' '}
                         {new Date(comment.createdAt).toLocaleTimeString()}
                       </p>
                     </div>
                   </div>
-                  <p className="text-gray-700 dark:text-gray-300">{comment.content}</p>
+                  <p className="text-gray-700 dark:text-gray-300">
+                    {comment.content}
+                  </p>
                 </div>
               ))}
             </div>
@@ -352,7 +369,9 @@ export default function BlogPostPage() {
                 <Input
                   placeholder="Your name"
                   value={newComment.name}
-                  onChange={(e) => setNewComment({ ...newComment, name: e.target.value })}
+                  onChange={e =>
+                    setNewComment({ ...newComment, name: e.target.value })
+                  }
                   disabled={isSubmitting}
                 />
               </div>
@@ -361,7 +380,9 @@ export default function BlogPostPage() {
                   placeholder="Your comment"
                   className="min-h-32"
                   value={newComment.content}
-                  onChange={(e) => setNewComment({ ...newComment, content: e.target.value })}
+                  onChange={e =>
+                    setNewComment({ ...newComment, content: e.target.value })
+                  }
                   disabled={isSubmitting}
                 />
               </div>

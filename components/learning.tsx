@@ -1,82 +1,84 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { 
-  BookOpen, 
-  Code, 
-  Database, 
-  Cloud, 
-  Cpu, 
-  BarChart 
-} from "lucide-react";
-import { Progress } from "@/components/ui/progress";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion } from 'framer-motion';
+import { BookOpen, Code, Database, Cloud, Cpu, BarChart } from 'lucide-react';
+import { Progress } from '@/components/ui/progress';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 
 const learningItems = [
   {
-    title: "Rust Programming",
-    description: "Learning Rust for high-performance, memory-safe systems programming.",
+    title: 'Rust Programming',
+    description:
+      'Learning Rust for high-performance, memory-safe systems programming.',
     icon: <Code className="h-6 w-6 text-primary" />,
     progress: 65,
     resources: [
-      "The Rust Programming Language Book",
-      "Rust by Example",
-      "Building a REST API with Rust",
+      'The Rust Programming Language Book',
+      'Rust by Example',
+      'Building a REST API with Rust',
     ],
   },
   {
-    title: "WebAssembly",
-    description: "Exploring WebAssembly for high-performance web applications.",
+    title: 'WebAssembly',
+    description: 'Exploring WebAssembly for high-performance web applications.',
     icon: <Cpu className="h-6 w-6 text-primary" />,
     progress: 40,
     resources: [
-      "WebAssembly.org tutorials",
-      "Rust and WebAssembly",
-      "Building with AssemblyScript",
+      'WebAssembly.org tutorials',
+      'Rust and WebAssembly',
+      'Building with AssemblyScript',
     ],
   },
   {
-    title: "Machine Learning for Backend",
-    description: "Implementing ML models in backend systems for intelligent features.",
+    title: 'Machine Learning for Backend',
+    description:
+      'Implementing ML models in backend systems for intelligent features.',
     icon: <BarChart className="h-6 w-6 text-primary" />,
     progress: 55,
     resources: [
-      "TensorFlow.js",
-      "ML with Python",
-      "Integrating ML models with APIs",
+      'TensorFlow.js',
+      'ML with Python',
+      'Integrating ML models with APIs',
     ],
   },
   {
-    title: "Blockchain Development",
-    description: "Building decentralized applications and smart contracts.",
+    title: 'Blockchain Development',
+    description: 'Building decentralized applications and smart contracts.',
     icon: <Database className="h-6 w-6 text-primary" />,
     progress: 30,
     resources: [
-      "Ethereum Development",
-      "Solidity Programming",
-      "Web3.js Integration",
+      'Ethereum Development',
+      'Solidity Programming',
+      'Web3.js Integration',
     ],
   },
   {
-    title: "Serverless Architecture",
-    description: "Advanced serverless patterns and best practices.",
+    title: 'Serverless Architecture',
+    description: 'Advanced serverless patterns and best practices.',
     icon: <Cloud className="h-6 w-6 text-primary" />,
     progress: 75,
     resources: [
-      "AWS Lambda Advanced Patterns",
-      "Serverless Framework",
-      "Event-driven Architecture",
+      'AWS Lambda Advanced Patterns',
+      'Serverless Framework',
+      'Event-driven Architecture',
     ],
   },
   {
-    title: "System Design Patterns",
-    description: "Advanced patterns for designing large-scale distributed systems.",
+    title: 'System Design Patterns',
+    description:
+      'Advanced patterns for designing large-scale distributed systems.',
     icon: <BookOpen className="h-6 w-6 text-primary" />,
     progress: 80,
     resources: [
-      "Designing Data-Intensive Applications",
-      "System Design Interview",
-      "Microservices Patterns",
+      'Designing Data-Intensive Applications',
+      'System Design Interview',
+      'Microservices Patterns',
     ],
   },
 ];

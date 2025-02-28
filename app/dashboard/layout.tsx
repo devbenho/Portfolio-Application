@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 import {
   LayoutDashboard,
   User,
@@ -14,38 +14,38 @@ import {
   LogOut,
   Menu,
   X,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const sidebarItems = [
   {
-    title: "Overview",
-    href: "/dashboard",
+    title: 'Overview',
+    href: '/dashboard',
     icon: <LayoutDashboard className="w-5 h-5" />,
   },
   {
-    title: "About",
-    href: "/dashboard/about",
+    title: 'About',
+    href: '/dashboard/about',
     icon: <User className="w-5 h-5" />,
   },
   {
-    title: "Skills",
-    href: "/dashboard/skills",
+    title: 'Skills',
+    href: '/dashboard/skills',
     icon: <Code className="w-5 h-5" />,
   },
   {
-    title: "Projects",
-    href: "/dashboard/projects",
+    title: 'Projects',
+    href: '/dashboard/projects',
     icon: <Briefcase className="w-5 h-5" />,
   },
   {
-    title: "Blog",
-    href: "/dashboard/blog",
+    title: 'Blog',
+    href: '/dashboard/blog',
     icon: <BookOpen className="w-5 h-5" />,
   },
   {
-    title: "Contact",
-    href: "/dashboard/contact",
+    title: 'Contact',
+    href: '/dashboard/contact',
     icon: <Mail className="w-5 h-5" />,
   },
 ];
@@ -63,14 +63,14 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     // Check authentication status
     const checkAuth = async () => {
       try {
-        const response = await fetch("/api/auth/check");
+        const response = await fetch('/api/auth/check');
         if (!response.ok) {
-          router.push("/login");
+          router.push('/login');
         } else {
           setIsAuthenticated(true);
         }
-      } catch (error) {
-        router.push("/login");
+      } catch (_error) {
+        router.push('/login');
       }
     };
 
@@ -79,15 +79,15 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch("/api/auth/logout", {
-        method: "POST",
+      const response = await fetch('/api/auth/logout', {
+        method: 'POST',
       });
 
       if (response.ok) {
-        router.push("/login");
+        router.push('/login');
       }
-    } catch (error) {
-      console.error("Logout error:", error);
+    } catch (_error) {
+      console.error('Logout error:', _error);
     }
   };
 
@@ -115,7 +115,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
             </Button>
           </div>
           <ul className="space-y-2">
-            {sidebarItems.map((item) => (
+            {sidebarItems.map(item => (
               <li key={item.href}>
                 <Link
                   href={item.href}
@@ -141,7 +141,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       </motion.aside>
 
       {/* Main content */}
-      <div className={`p-4 ${isSidebarOpen ? "ml-64" : "ml-0"}`}>
+      <div className={`p-4 ${isSidebarOpen ? 'ml-64' : 'ml-0'}`}>
         <div className="mb-4 flex items-center">
           {!isSidebarOpen && (
             <Button
@@ -160,4 +160,4 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       </div>
     </div>
   );
-} 
+}

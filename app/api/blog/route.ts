@@ -5,16 +5,17 @@ export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const limit = parseInt(searchParams.get('limit') || '10');
-    
+
     const client = await clientPromise;
     const db = client.db('portfolio');
-    
-    const posts = await db.collection('blog')
+
+    const posts = await db
+      .collection('blog')
       .find({})
       .sort({ createdAt: -1 })
       .limit(limit)
       .toArray();
-    
+
     return NextResponse.json(posts);
   } catch (error) {
     console.error('Error fetching blog posts:', error);
@@ -28,7 +29,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    
+
     // Validate request body
     if (!body.title || !body.content || !body.excerpt) {
       return NextResponse.json(
@@ -36,21 +37,24 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
-    
+
     const client = await clientPromise;
     const db = client.db('portfolio');
-    
+
     const result = await db.collection('blog').insertOne({
       ...body,
       likes: 0,
       comments: [],
-      createdAt: new Date()
+      createdAt: new Date(),
     });
-    
-    return NextResponse.json({ 
-      message: 'Blog post created successfully',
-      id: result.insertedId 
-    }, { status: 201 });
+
+    return NextResponse.json(
+      {
+        message: 'Blog post created successfully',
+        id: result.insertedId,
+      },
+      { status: 201 }
+    );
   } catch (error) {
     console.error('Error creating blog post:', error);
     return NextResponse.json(

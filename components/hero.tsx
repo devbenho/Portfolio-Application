@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Code, Database, Server } from "lucide-react";
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { Button } from '@/components/ui/button';
+import { ArrowRight, Code, Database, Server } from 'lucide-react';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const Hero = () => {
   return (
@@ -24,8 +24,8 @@ const Hero = () => {
               top: `${Math.random() * 100}%`,
             }}
             initial={{ opacity: 0, scale: 0 }}
-            animate={{ 
-              opacity: [0.1, 0.2, 0.1], 
+            animate={{
+              opacity: [0.1, 0.2, 0.1],
               scale: [1, 1.1, 1],
               x: [0, Math.random() * 40 - 20, 0],
               y: [0, Math.random() * 40 - 20, 0],
@@ -33,7 +33,7 @@ const Hero = () => {
             transition={{
               duration: 10 + i * 2,
               repeat: Infinity,
-              ease: "easeInOut",
+              ease: 'easeInOut',
             }}
           />
         ))}
@@ -83,7 +83,12 @@ const Hero = () => {
                 Hire Me <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-full">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="rounded-full"
+            >
               <Link href="#projects">View My Work</Link>
             </Button>
           </motion.div>

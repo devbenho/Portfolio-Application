@@ -79,6 +79,8 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
     "dotenv": "^16.4.7",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",

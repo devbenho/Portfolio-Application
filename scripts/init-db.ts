@@ -1,6 +1,8 @@
-require('dotenv').config({ path: '.env.local' });
-const { MongoClient } = require('mongodb');
-const { hash } = require('bcrypt');
+import dotenv from 'dotenv';
+import { MongoClient } from 'mongodb';
+import { hash } from 'bcrypt';
+
+dotenv.config({ path: '.env.local' });
 
 const MONGODB_URI = process.env.MONGODB_URI;
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
@@ -21,7 +23,9 @@ async function initDb() {
 
     // Check if users collection exists
     const collections = await db.listCollections().toArray();
-    const hasUsersCollection = collections.some((col: { name: string }) => col.name === 'users');
+    const hasUsersCollection = collections.some(
+      (col: { name: string }) => col.name === 'users'
+    );
 
     if (!hasUsersCollection) {
       console.log('Creating users collection...');
@@ -39,7 +43,7 @@ async function initDb() {
         email: ADMIN_EMAIL,
         password: hashedPassword,
         role: 'admin',
-        createdAt: new Date()
+        createdAt: new Date(),
       });
       console.log('Admin user created successfully');
     } else {
@@ -54,4 +58,4 @@ async function initDb() {
   }
 }
 
-initDb(); 
+initDb();

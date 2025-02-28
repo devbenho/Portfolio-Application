@@ -1,11 +1,11 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-import { verify } from "jsonwebtoken";
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+import { verify } from 'jsonwebtoken';
 
-const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
+const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
 
 // Add auth routes that should be accessible without authentication
-const publicRoutes = ["/login", "/api/auth/login"];
+const publicRoutes = ['/login', '/api/auth/login'];
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -15,12 +15,12 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const token = request.cookies.get("auth-token")?.value;
+  const token = request.cookies.get('auth-token')?.value;
 
   // Check if the request is for the dashboard
-  if (pathname.startsWith("/dashboard")) {
+  if (pathname.startsWith('/dashboard')) {
     if (!token) {
-      const loginUrl = new URL("/login", request.url);
+      const loginUrl = new URL('/login', request.url);
       return NextResponse.redirect(loginUrl);
     }
 
@@ -28,8 +28,8 @@ export async function middleware(request: NextRequest) {
       // Verify JWT token
       verify(token, JWT_SECRET);
       return NextResponse.next();
-    } catch (error) {
-      const loginUrl = new URL("/login", request.url);
+    } catch (_error) {
+      const loginUrl = new URL('/login', request.url);
       return NextResponse.redirect(loginUrl);
     }
   }
@@ -46,6 +46,6 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      */
-    "/((?!_next/static|_next/image|favicon.ico).*)",
+    '/((?!_next/static|_next/image|favicon.ico).*)',
   ],
-}; 
+};

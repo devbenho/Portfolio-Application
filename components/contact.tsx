@@ -1,28 +1,22 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Send, 
-  Loader2 
-} from "lucide-react";
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardHeader, 
-  CardTitle 
-} from "@/components/ui/card";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/hooks/use-toast';
+import { Mail, Phone, MapPin, Send, Loader2 } from 'lucide-react';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 import {
   Form,
   FormControl,
@@ -30,20 +24,20 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from '@/components/ui/form';
 
 const formSchema = z.object({
   name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
+    message: 'Name must be at least 2 characters.',
   }),
   email: z.string().email({
-    message: "Please enter a valid email address.",
+    message: 'Please enter a valid email address.',
   }),
   subject: z.string().min(5, {
-    message: "Subject must be at least 5 characters.",
+    message: 'Subject must be at least 5 characters.',
   }),
   message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
+    message: 'Message must be at least 10 characters.',
   }),
 });
 
@@ -54,24 +48,24 @@ const Contact = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(_values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
-    
+
     // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
     setIsSubmitting(false);
     form.reset();
-    
+
     toast({
-      title: "Message sent!",
+      title: 'Message sent!',
       description: "Thank you for your message. I'll get back to you soon.",
     });
   }
@@ -153,12 +147,12 @@ const Contact = () => {
                 <div className="pt-6 mt-6 border-t border-gray-200 dark:border-gray-700">
                   <h4 className="font-medium mb-4">Availability</h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                    <span className="font-medium">Monday - Friday:</span> 9:00 AM
-                    - 6:00 PM PST
+                    <span className="font-medium">Monday - Friday:</span> 9:00
+                    AM - 6:00 PM PST
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    <span className="font-medium">Response Time:</span> Within 24
-                    hours
+                    <span className="font-medium">Response Time:</span> Within
+                    24 hours
                   </p>
                 </div>
               </CardContent>
@@ -225,7 +219,10 @@ const Contact = () => {
                         <FormItem>
                           <FormLabel>Subject</FormLabel>
                           <FormControl>
-                            <Input placeholder="Subject of your message" {...field} />
+                            <Input
+                              placeholder="Subject of your message"
+                              {...field}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>

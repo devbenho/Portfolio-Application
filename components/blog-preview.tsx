@@ -1,48 +1,57 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Calendar, Clock, ThumbsUp, MessageSquare } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import {
+  ArrowRight,
+  Calendar,
+  Clock,
+  ThumbsUp,
+  MessageSquare,
+} from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const blogPosts = [
   {
     id: 1,
-    title: "Building Scalable Microservices with Node.js",
+    title: 'Building Scalable Microservices with Node.js',
     excerpt:
-      "Learn how to design and implement scalable microservices architecture using Node.js, Docker, and Kubernetes.",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
-    date: "May 15, 2025",
-    readTime: "8 min read",
+      'Learn how to design and implement scalable microservices architecture using Node.js, Docker, and Kubernetes.',
+    image:
+      'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80',
+    date: 'May 15, 2025',
+    readTime: '8 min read',
     likes: 124,
     comments: 32,
-    tags: ["Microservices", "Node.js", "Architecture"],
+    tags: ['Microservices', 'Node.js', 'Architecture'],
   },
   {
     id: 2,
-    title: "Advanced MongoDB Optimization Techniques",
+    title: 'Advanced MongoDB Optimization Techniques',
     excerpt:
-      "Discover advanced techniques for optimizing MongoDB performance, including indexing strategies, query optimization, and schema design.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
-    date: "April 28, 2025",
-    readTime: "10 min read",
+      'Discover advanced techniques for optimizing MongoDB performance, including indexing strategies, query optimization, and schema design.',
+    image:
+      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80',
+    date: 'April 28, 2025',
+    readTime: '10 min read',
     likes: 98,
     comments: 24,
-    tags: ["MongoDB", "Database", "Performance"],
+    tags: ['MongoDB', 'Database', 'Performance'],
   },
   {
     id: 3,
-    title: "Implementing Event-Driven Architecture",
+    title: 'Implementing Event-Driven Architecture',
     excerpt:
-      "A comprehensive guide to implementing event-driven architecture in modern backend systems using Kafka and RabbitMQ.",
-    image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
-    date: "April 10, 2025",
-    readTime: "12 min read",
+      'A comprehensive guide to implementing event-driven architecture in modern backend systems using Kafka and RabbitMQ.',
+    image:
+      'https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80',
+    date: 'April 10, 2025',
+    readTime: '12 min read',
     likes: 156,
     comments: 45,
-    tags: ["Event-Driven", "Kafka", "Architecture"],
+    tags: ['Event-Driven', 'Kafka', 'Architecture'],
   },
 ];
 

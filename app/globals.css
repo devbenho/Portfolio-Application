@@ -82,11 +82,19 @@
 }
 
 .hero-gradient {
-  background: linear-gradient(135deg, hsl(270, 70%, 50%, 0.8) 0%, hsl(270, 70%, 60%, 0.4) 100%);
+  background: linear-gradient(
+    135deg,
+    hsl(270, 70%, 50%, 0.8) 0%,
+    hsl(270, 70%, 60%, 0.4) 100%
+  );
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, hsl(270, 70%, 50%) 0%, hsl(270, 50%, 60%) 100%);
+  background: linear-gradient(
+    135deg,
+    hsl(270, 70%, 50%) 0%,
+    hsl(270, 50%, 60%) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -114,7 +122,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, hsl(270, 70%, 50%, 0.1) 0%, hsl(270, 70%, 60%, 0.05) 100%);
+  background: linear-gradient(
+    135deg,
+    hsl(270, 70%, 50%, 0.1) 0%,
+    hsl(270, 70%, 60%, 0.05) 100%
+  );
   z-index: -1;
   transform: translateY(100%);
   transition: transform 0.3s ease;

@@ -1,89 +1,69 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { 
-  Database, 
-  Server, 
-  Code, 
-  Cloud, 
-  Lock, 
-  GitBranch, 
-  Terminal, 
-  Cpu, 
-  BarChart, 
-  Layers 
-} from "lucide-react";
+import { motion } from 'framer-motion';
+import {
+  Database,
+  Server,
+  Code,
+  Cloud,
+  Lock,
+  Terminal,
+  Layers,
+} from 'lucide-react';
+import { ReactNode } from 'react';
+
+interface SkillCardProps {
+  category: string;
+  icon: ReactNode;
+  items: string[];
+}
 
 const skills = [
   {
-    category: "Backend Development",
+    category: 'Backend Development',
     icon: <Server className="h-6 w-6 text-primary" />,
-    items: [
-      "Node.js",
-      "Python",
-      "Java",
-      "Go",
-      "C#/.NET",
-    ],
+    items: ['Node.js', 'Python', 'Java', 'Go', 'C#/.NET'],
   },
   {
-    category: "Databases",
+    category: 'Databases',
     icon: <Database className="h-6 w-6 text-primary" />,
-    items: [
-      "MongoDB",
-      "PostgreSQL",
-      "MySQL",
-      "Redis",
-      "Elasticsearch",
-    ],
+    items: ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis', 'Elasticsearch'],
   },
   {
-    category: "API Development",
+    category: 'API Development',
     icon: <Code className="h-6 w-6 text-primary" />,
-    items: [
-      "RESTful APIs",
-      "GraphQL",
-      "gRPC",
-      "WebSockets",
-      "OpenAPI/Swagger",
-    ],
+    items: ['RESTful APIs', 'GraphQL', 'gRPC', 'WebSockets', 'OpenAPI/Swagger'],
   },
   {
-    category: "Cloud & DevOps",
+    category: 'Cloud & DevOps',
     icon: <Cloud className="h-6 w-6 text-primary" />,
-    items: [
-      "AWS",
-      "Docker",
-      "Kubernetes",
-      "CI/CD",
-      "Terraform",
-    ],
+    items: ['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'Terraform'],
   },
   {
-    category: "Architecture",
+    category: 'Architecture',
     icon: <Layers className="h-6 w-6 text-primary" />,
     items: [
-      "Microservices",
-      "Event-Driven",
-      "Domain-Driven Design",
-      "Serverless",
-      "System Design",
+      'Microservices',
+      'Event-Driven',
+      'Domain-Driven Design',
+      'Serverless',
+      'System Design',
     ],
   },
   {
-    category: "Other Skills",
+    category: 'Other Skills',
     icon: <Terminal className="h-6 w-6 text-primary" />,
     items: [
-      "Security",
-      "Performance Optimization",
-      "Testing",
-      "Git/Version Control",
-      "Problem Solving",
+      'Security',
+      'Performance Optimization',
+      'Testing',
+      'Git/Version Control',
+      'Problem Solving',
     ],
   },
 ];
 
-const SkillCard = ({ category, icon, items }) => {
+const SkillCard = ({ category, icon, items }: SkillCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -97,7 +77,7 @@ const SkillCard = ({ category, icon, items }) => {
         <h3 className="text-lg font-semibold ml-2">{category}</h3>
       </div>
       <div className="space-y-2">
-        {items.map((skill, index) => (
+        {items.map((skill: string, index: number) => (
           <div key={index} className="flex items-center">
             <span className="text-primary mr-2">•</span>
             <span className="text-sm font-medium">{skill}</span>
@@ -154,7 +134,9 @@ const Skills = () => {
                 <Cloud className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h4 className="font-medium">AWS Certified Solutions Architect</h4>
+                <h4 className="font-medium">
+                  AWS Certified Solutions Architect
+                </h4>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   Amazon Web Services
                 </p>
@@ -176,7 +158,9 @@ const Skills = () => {
                 <Lock className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h4 className="font-medium">Certified Kubernetes Administrator</h4>
+                <h4 className="font-medium">
+                  Certified Kubernetes Administrator
+                </h4>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   Cloud Native Computing Foundation
                 </p>

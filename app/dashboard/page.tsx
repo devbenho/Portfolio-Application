@@ -1,69 +1,62 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import {
-  BarChart,
-  Briefcase,
-  Code,
-  FileText,
-  Mail,
-  Users,
-} from "lucide-react";
+} from '@/components/ui/card';
+import { Briefcase, Code, FileText, Mail, Users } from 'lucide-react';
 
 const stats = [
   {
-    title: "Total Projects",
-    value: "12",
-    description: "Live projects",
+    title: 'Total Projects',
+    value: '12',
+    description: 'Live projects',
     icon: <Briefcase className="h-6 w-6 text-primary" />,
   },
   {
-    title: "Skills",
-    value: "25",
-    description: "Technical skills",
+    title: 'Skills',
+    value: '25',
+    description: 'Technical skills',
     icon: <Code className="h-6 w-6 text-primary" />,
   },
   {
-    title: "Blog Posts",
-    value: "8",
-    description: "Published articles",
+    title: 'Blog Posts',
+    value: '8',
+    description: 'Published articles',
     icon: <FileText className="h-6 w-6 text-primary" />,
   },
   {
-    title: "Messages",
-    value: "5",
-    description: "Unread messages",
+    title: 'Messages',
+    value: '5',
+    description: 'Unread messages',
     icon: <Mail className="h-6 w-6 text-primary" />,
   },
 ];
 
 const recentActivities = [
   {
-    action: "Updated project",
-    target: "E-commerce API",
-    time: "2 hours ago",
+    action: 'Updated project',
+    target: 'E-commerce API',
+    time: '2 hours ago',
   },
   {
-    action: "Added new skill",
-    target: "GraphQL",
-    time: "5 hours ago",
+    action: 'Added new skill',
+    target: 'GraphQL',
+    time: '5 hours ago',
   },
   {
-    action: "Published blog post",
-    target: "Building Scalable Systems",
-    time: "1 day ago",
+    action: 'Published blog post',
+    target: 'Building Scalable Systems',
+    time: '1 day ago',
   },
   {
-    action: "Received message",
-    target: "from John Doe",
-    time: "2 days ago",
+    action: 'Received message',
+    target: 'from John Doe',
+    time: '2 days ago',
   },
 ];
 
@@ -119,7 +112,7 @@ export default function DashboardPage() {
                 >
                   <div>
                     <p className="text-sm font-medium">
-                      {activity.action}{" "}
+                      {activity.action}{' '}
                       <span className="text-primary">{activity.target}</span>
                     </p>
                     <p className="text-xs text-gray-500">{activity.time}</p>
@@ -159,4 +152,4 @@ export default function DashboardPage() {
       </div>
     </div>
   );
-} 
+}

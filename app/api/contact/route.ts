@@ -4,7 +4,7 @@ import clientPromise from '@/lib/db';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    
+
     // Validate request body
     if (!body.name || !body.email || !body.message) {
       return NextResponse.json(
@@ -12,20 +12,23 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
-    
+
     const client = await clientPromise;
     const db = client.db('portfolio');
-    
+
     const result = await db.collection('contacts').insertOne({
       ...body,
       status: 'new',
-      createdAt: new Date()
+      createdAt: new Date(),
     });
-    
-    return NextResponse.json({ 
-      message: 'Contact request submitted successfully',
-      id: result.insertedId 
-    }, { status: 201 });
+
+    return NextResponse.json(
+      {
+        message: 'Contact request submitted successfully',
+        id: result.insertedId,
+      },
+      { status: 201 }
+    );
   } catch (error) {
     console.error('Error submitting contact request:', error);
     return NextResponse.json(
